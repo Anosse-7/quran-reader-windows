@@ -1,0 +1,257 @@
+<Window x:Class="QuranReader.App.MainWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:local="using:QuranReader.App"
+  Title="Qur’an Reader">
+  <local:AutomationRootGrid x:Name="Root" Loaded="OnLoaded" Padding="24,11" RowSpacing="12" KeyboardAcceleratorPlacementMode="Hidden">
+
+    <Grid.Resources>
+      <Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}"><Setter Property="MinWidth" Value="40"/><Setter Property="MinHeight" Value="40"/><Setter Property="Padding" Value="14,8"/><Setter Property="CornerRadius" Value="6"/></Style>
+      <Style TargetType="ToggleButton" BasedOn="{StaticResource DefaultToggleButtonStyle}"><Setter Property="MinWidth" Value="40"/><Setter Property="MinHeight" Value="40"/><Setter Property="Padding" Value="12,8"/></Style>
+      <Style TargetType="ComboBox" BasedOn="{StaticResource DefaultComboBoxStyle}"><Setter Property="MinHeight" Value="40"/></Style>
+      <Style TargetType="TextBox" BasedOn="{StaticResource DefaultTextBoxStyle}"><Setter Property="MinHeight" Value="40"/></Style>
+    </Grid.Resources>
+    <Grid.KeyboardAccelerators>
+      <KeyboardAccelerator Key="PageDown" Modifiers="Control" Invoked="NextPageKey" />
+      <KeyboardAccelerator Key="PageUp" Modifiers="Control" Invoked="PreviousPageKey" />
+      <KeyboardAccelerator Key="Left" Modifiers="Control" Invoked="NextPageKey" />
+      <KeyboardAccelerator Key="Right" Modifiers="Control" Invoked="PreviousPageKey" />
+      <KeyboardAccelerator Key="B" Modifiers="Control" Invoked="BookmarkKey" />
+      <KeyboardAccelerator Key="T" Modifiers="Control" Invoked="TafsirKey" />
+      <KeyboardAccelerator Key="M" Modifiers="Control" Invoked="ModeKey" />
+      <KeyboardAccelerator Key="P" Modifiers="Control,Shift" Invoked="PreviewKey" />
+      <KeyboardAccelerator Key="Number0" Modifiers="Control" Invoked="FitKey" />
+      <KeyboardAccelerator Key="F11" Invoked="FullscreenKey" />
+      <KeyboardAccelerator Key="Escape" Invoked="EscapeKey" />
+    </Grid.KeyboardAccelerators>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <!-- Native command groups, aligned to the reading book. -->
+    <Grid x:Name="CommandHeader" MaxWidth="1540" Height="44" ColumnSpacing="16">
+      <Grid.ColumnDefinitions><ColumnDefinition x:Name="BrandColumn" Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+      <StackPanel x:Name="ReaderBrand" VerticalAlignment="Center">
+        <TextBlock x:Name="TitleLabel" Text="Qur’an Reader" FontSize="22" FontWeight="SemiBold" />
+        <TextBlock x:Name="SubtitleLabel" Visibility="Collapsed" />
+      </StackPanel>
+      <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+        <ComboBox x:Name="ModePicker" Width="250" MinHeight="40" AutomationProperties.Name="Reading mode" SelectionChanged="ModeChanged">
+          <x:String>Tafsir Study</x:String><x:String>Original Mushaf</x:String><x:String>Adaptive Book · Preview</x:String>
+        </ComboBox>
+        <StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Center">
+          <Button x:Name="SmallerButton" Content="A−" Click="Smaller" AutomationProperties.Name="Decrease reading scale" ToolTipService.ToolTip="Decrease reading font by 2 DIP"/>
+          <TextBlock x:Name="ScaleLabel" Width="42" TextAlignment="Center" VerticalAlignment="Center" FontSize="12" AutomationProperties.Name="Current reading font size"/>
+          <Button x:Name="LargerButton" Content="A+" Click="Larger" AutomationProperties.Name="Increase reading scale" ToolTipService.ToolTip="Increase reading font by 2 DIP"/>
+        </StackPanel>
+        <Button x:Name="AppearanceButton" Content="Appearance" AutomationProperties.Name="Reading appearance options" ToolTipService.ToolTip="Theme, reading fit and Tafsir presentation">
+          <Button.Flyout>
+            <Flyout Placement="BottomEdgeAlignedRight">
+              <StackPanel Width="260" Spacing="10">
+                <TextBlock Text="Reading appearance" FontWeight="SemiBold"/>
+                <TextBlock Text="Theme"/>
+                <ComboBox x:Name="ThemePicker" HorizontalAlignment="Stretch" MinHeight="40" AutomationProperties.Name="Reading theme" SelectionChanged="ThemeChanged">
+                  <x:String>Light</x:String><x:String>Sepia</x:String><x:String>Dark</x:String><x:String>System</x:String>
+                </ComboBox>
+                <TextBlock x:Name="TafsirPresentationLabel" Text="Tafsir presentation"/>
+                <ComboBox x:Name="TafsirPresentationPicker" HorizontalAlignment="Stretch" MinHeight="40" AutomationProperties.Name="Tafsir presentation style" SelectionChanged="TafsirPresentationChanged">
+                  <x:String>Popup</x:String><x:String>Sidebar</x:String><x:String>Bottom Sheet</x:String><x:String>Edge Drawer</x:String>
+                </ComboBox>
+                <ToggleButton x:Name="FitToggle" MinHeight="40" HorizontalAlignment="Stretch" Content="Fit Spread" Click="ToggleFitSpread" AutomationProperties.Name="Toggle Fit Spread or Comfort Reading" ToolTipService.ToolTip="Fit Spread or Comfort Zoom (Ctrl+0)"/>
+              </StackPanel>
+            </Flyout>
+          </Button.Flyout>
+        </Button>
+      </StackPanel>
+    </Grid>
+
+    <Grid x:Name="NavigationBar" Grid.Row="1" MaxWidth="1540" Height="40" ColumnSpacing="8">
+      <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+      <ComboBox x:Name="SurahPicker" HorizontalAlignment="Stretch" MinWidth="140" AutomationProperties.Name="Surah selector" SelectionChanged="SurahChanged" ToolTipService.ToolTip="Go to the beginning of a surah"/>
+      <TextBox x:Name="PagePicker" Grid.Column="1" Width="80" Text="1" MaxLength="3" InputScope="Number" AutomationProperties.Name="Page number, 1 to 604" KeyDown="PageKeyDown" ToolTipService.ToolTip="Canonical publisher page, 1–604"/>
+      <Button x:Name="GoButton" Grid.Column="2" Content="Go" MinWidth="56" Click="GoPage" AutomationProperties.Name="Go to entered page" ToolTipService.ToolTip="Go to entered canonical page (Enter)"/>
+      <Button x:Name="BookmarksButton" Grid.Column="3" Content="Bookmarks" Click="ShowBookmarks" AutomationProperties.Name="Open bookmarks list" ToolTipService.ToolTip="Your saved ayat"/>
+    </Grid>
+
+    <!-- Error Bar -->
+    <InfoBar x:Name="ErrorBar" Grid.Row="2" IsOpen="False" IsClosable="False" Severity="Error" Title="Reader needs attention" />
+
+    <!-- Dual-Mode Reading Container & Resizable Tafsir Drawer -->
+    <Grid x:Name="ReadingGrid" Grid.Row="3" ColumnSpacing="0" SizeChanged="ReadingSizeChanged">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition x:Name="TafsirColumn" Width="0" />
+        <ColumnDefinition x:Name="TafsirEdgeColumn" Width="16" />
+      </Grid.ColumnDefinitions>
+
+      <!-- Reading Area: holds Tafsir Mode (ReadingSurface) and Mushaf Mode (MushafReader) -->
+      <Grid x:Name="ReadingArea" Grid.Column="0">
+        <Border x:Name="ReadingSurface" CornerRadius="10" BorderThickness="1" Padding="4" MaxWidth="780" HorizontalAlignment="Center">
+          <ListView x:Name="VerseList" SelectionMode="Single" SelectionChanged="VerseSelected" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollMode="Disabled" HorizontalContentAlignment="Stretch" AutomationProperties.Name="Qur’an verses" />
+        </Border>
+        <ProgressRing x:Name="LoadingRing" IsActive="False" Visibility="Collapsed" Width="48" Height="48" HorizontalAlignment="Center" VerticalAlignment="Center" AutomationProperties.Name="Loading scripture" />
+        <TextBlock x:Name="EmptyNotice" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FlowDirection="RightToLeft" AutomationProperties.Name="Empty reading notice" />
+      </Grid>
+
+      <!-- Tafsir al-Muyassar Sidebar / Overlay -->
+      <Border x:Name="TafsirPanel" Grid.Column="1" CornerRadius="10" BorderThickness="1" Padding="18,16" Visibility="Collapsed">
+        <Grid RowSpacing="12">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+
+          <!-- Drawer header with Title and Drawer controls -->
+          <Grid ColumnSpacing="8">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="TafsirTitle" Text="Tafsir al-Muyassar" FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center" FlowDirection="RightToLeft" TextTrimming="CharacterEllipsis" />
+            <ToggleButton x:Name="PinButton" Grid.Column="1" Content="📌" Padding="6,4" ToolTipService.ToolTip="Pin sidebar open" Click="TogglePin" AutomationProperties.Name="Pin tafsir drawer" />
+            <Button x:Name="WidthButton" Grid.Column="2" Content="↔" Padding="6,4" ToolTipService.ToolTip="Adjust sidebar width" Click="CycleDrawerWidth" AutomationProperties.Name="Adjust drawer width" />
+            <Button x:Name="SidebarStyleButton" Grid.Column="3" Content="◫" Padding="6,4" ToolTipService.ToolTip="Switch presentation style" Click="CyclePresentationStyle" AutomationProperties.Name="Switch tafsir presentation style" />
+            <Button Grid.Column="4" Content="✕" Padding="6,4" ToolTipService.ToolTip="Close tafsir drawer (Esc)" Click="CloseTafsir" AutomationProperties.Name="Close tafsir drawer" />
+          </Grid>
+
+          <TextBlock x:Name="TafsirAttribution" Grid.Row="1" Text="التفسير الميسر · مجمع الملك فهد لطباعة المصحف الشريف" FlowDirection="RightToLeft" TextWrapping="Wrap" FontSize="12" Opacity="0.75" />
+
+          <ScrollViewer x:Name="SidebarScroll" Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled">
+            <StackPanel Spacing="16">
+              <StackPanel x:Name="EdgeEmptyState" Visibility="Collapsed" Spacing="10" Margin="4,28">
+                <TextBlock Text="لم يتم تحديد آية" FontSize="24" FlowDirection="RightToLeft" TextWrapping="Wrap"/>
+                <TextBlock Text="No ayah selected" FontSize="18" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                <TextBlock Text="Select an ayah in the Mushaf to read its complete text and Tafsir here." TextWrapping="Wrap"/>
+              </StackPanel>
+              <TextBlock x:Name="EdgeAyahIdentity" FontSize="14" TextWrapping="Wrap" Visibility="Collapsed"/>
+              <Border x:Name="SidebarScriptureBox" Visibility="Collapsed" CornerRadius="6" BorderThickness="1" Padding="12">
+                <RichTextBlock x:Name="SidebarScriptureText" FontSize="24" FlowDirection="RightToLeft" Language="ar-SA" TextWrapping="Wrap" IsTextSelectionEnabled="True" LineHeight="44" LineStackingStrategy="BlockLineHeight"/>
+              </Border>
+              <RichTextBlock x:Name="TafsirText" FontFamily="Segoe UI" FontSize="18" FlowDirection="RightToLeft" Language="ar-SA" TextWrapping="Wrap" IsTextSelectionEnabled="True" LineHeight="33" LineStackingStrategy="BlockLineHeight" />
+            </StackPanel>
+          </ScrollViewer>
+        </Grid>
+      </Border>
+      <ToggleButton x:Name="TafsirToggle" Grid.Column="2" Width="44" Height="64" MinWidth="44" MinHeight="44" Padding="8" Margin="0,0,-24,0" HorizontalAlignment="Right" VerticalAlignment="Center" CornerRadius="8,0,0,8" Click="ToggleEdgeTafsir" AutomationProperties.Name="Open Tafsir edge drawer" ToolTipService.ToolTip="Tafsir — open the right-edge drawer (Ctrl+T)">
+        <FontIcon x:Name="TafsirEdgeChevron" Glyph="&#xE76B;" FontSize="18"/>
+      </ToggleButton>
+    </Grid>
+
+    <!-- One predictable reading dock: RTL turns and nearby ayah actions. -->
+    <Grid x:Name="FooterBar" Grid.Row="4" MaxWidth="1540" Height="44" ColumnSpacing="12">
+      <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+      <StackPanel x:Name="ReadingStatus" VerticalAlignment="Center">
+        <TextBlock x:Name="PositionLabel" FontSize="12" TextTrimming="CharacterEllipsis"/>
+        <TextBlock x:Name="ProvisionalNotice" FontSize="11" Opacity="0.7" TextTrimming="CharacterEllipsis" FlowDirection="RightToLeft"/>
+      </StackPanel>
+      <StackPanel x:Name="ReadingDock" Grid.Column="1" Orientation="Horizontal" Spacing="8">
+        <Button x:Name="NextButton" Content="Next" MinHeight="44" MinWidth="44" Click="NextPage" AutomationProperties.Name="Go to next page (left / forward) (Left Arrow / Ctrl+Left)">
+          <Button.ContentTemplate><DataTemplate><StackPanel Orientation="Horizontal" Spacing="8"><FontIcon Glyph="&#xE76B;" FontSize="14"/><TextBlock Text="{Binding}" VerticalAlignment="Center"/></StackPanel></DataTemplate></Button.ContentTemplate>
+        </Button>
+        <Button x:Name="PreviousButton" Content="Previous" MinHeight="44" MinWidth="44" Click="PreviousPage" AutomationProperties.Name="Go to previous page (right / backward) (Right Arrow / Ctrl+Right)">
+          <Button.ContentTemplate><DataTemplate><StackPanel Orientation="Horizontal" Spacing="8"><TextBlock Text="{Binding}" VerticalAlignment="Center"/><FontIcon Glyph="&#xE76C;" FontSize="14"/></StackPanel></DataTemplate></Button.ContentTemplate>
+        </Button>
+        <Border Width="1" Margin="4,8" Background="{ThemeResource DividerStrokeColorDefaultBrush}"/>
+        <Button x:Name="BookmarkButton" Content="Bookmark" MinHeight="44" MinWidth="44" Click="Bookmark" AutomationProperties.Name="Bookmark selected ayah" ToolTipService.ToolTip="Save or remove the selected ayah (Ctrl+B)"/>
+        <Button x:Name="CopyAyahButton" Content="Copy ayah" MinHeight="44" MinWidth="44" Click="CopySelectedAyah" AutomationProperties.Name="Copy whole selected ayah from verified source" ToolTipService.ToolTip="Copy the complete publisher ayah, including its marker"/>
+        <Button x:Name="MoreButton" MinHeight="44" MinWidth="44" AutomationProperties.Name="More reading actions" ToolTipService.ToolTip="Print reference and fullscreen">
+          <SymbolIcon Symbol="More"/>
+          <Button.Flyout><MenuFlyout>
+            <MenuFlyoutItem x:Name="ReferenceButton" Text="Print reference" Icon="{x:Null}" Click="OpenArtworkReference" AutomationProperties.Name="Open isolated official artwork comparison" MinHeight="40"/>
+            <MenuFlyoutItem Text="Fullscreen (F11)" Click="FullscreenFromMenu" MinHeight="40"/>
+          </MenuFlyout></Button.Flyout>
+        </Button>
+      </StackPanel>
+    </Grid>
+
+    <!-- Alternative Presentation: Tafsir Bottom Sheet -->
+    <Border x:Name="TafsirBottomSheet" Grid.Row="3" Grid.RowSpan="2" Canvas.ZIndex="150" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" CornerRadius="16,16,0,0" BorderThickness="1,1,1,0" Padding="20,14" Visibility="Collapsed" MaxHeight="380" KeyDown="OnSheetKeyDown">
+      <Grid RowSpacing="10">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Bottom Sheet Header with Drag Pill and Controls -->
+        <Grid ColumnSpacing="8">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+          <StackPanel Orientation="Vertical">
+            <Border Width="40" Height="4" CornerRadius="2" HorizontalAlignment="Center" Margin="0,0,0,6" x:Name="SheetDragPill" />
+            <TextBlock x:Name="SheetTitle" Text="تفسير الآية" FontSize="17" FontWeight="SemiBold" FlowDirection="RightToLeft" />
+          </StackPanel>
+          <Button x:Name="SheetStyleButton" Grid.Column="1" Content="◫" Padding="6,4" ToolTipService.ToolTip="Switch presentation style" Click="CyclePresentationStyle" AutomationProperties.Name="Switch tafsir presentation style" />
+          <Button x:Name="SheetCloseButton" Grid.Column="2" Content="✕" Padding="6,4" ToolTipService.ToolTip="Close tafsir (Esc)" Click="CloseTafsir" AutomationProperties.Name="Close tafsir bottom sheet" />
+        </Grid>
+
+        <!-- Bottom Sheet ScrollViewer -->
+        <ScrollViewer x:Name="SheetContentScrollViewer" Grid.Row="1" IsTabStop="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled">
+          <StackPanel Spacing="10">
+            <Border x:Name="SheetScriptureBox" CornerRadius="8" BorderThickness="1" Padding="14,10">
+              <RichTextBlock x:Name="SheetScriptureText" FontSize="21" FlowDirection="RightToLeft" Language="ar-SA" TextWrapping="Wrap" IsTextSelectionEnabled="True" LineHeight="38" LineStackingStrategy="BlockLineHeight" />
+            </Border>
+            <RichTextBlock x:Name="SheetTafsirText" FontFamily="Segoe UI" FontSize="17" FlowDirection="RightToLeft" Language="ar-SA" TextWrapping="Wrap" IsTextSelectionEnabled="True" LineHeight="29" LineStackingStrategy="BlockLineHeight" />
+          </StackPanel>
+        </ScrollViewer>
+      </Grid>
+    </Border>
+
+    <!-- Default Presentation: Focused Tafsir Popup Overlay (Scrim + Floating Dialog) -->
+    <Grid x:Name="TafsirPopupOverlay" Grid.Row="0" Grid.RowSpan="5" Canvas.ZIndex="200" Visibility="Collapsed" KeyDown="OnPopupKeyDown">
+      <!-- Dimmed Scrim Backdrop -->
+      <Border x:Name="TafsirPopupScrim" Tapped="OnPopupScrimTapped" AutomationProperties.Name="Dismiss tafsir popup" />
+
+      <!-- Centered Floating Popup Card -->
+      <Border x:Name="TafsirPopupCard" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="14" BorderThickness="1" Padding="24,20" MaxWidth="780">
+        <Grid RowSpacing="14">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+
+          <!-- Popup Header -->
+          <Grid ColumnSpacing="12">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical">
+              <TextBlock x:Name="PopupTitle" Text="تفسير الآية" FontSize="19" FontWeight="SemiBold" FlowDirection="RightToLeft" />
+              <TextBlock x:Name="PopupAttribution" Text="التفسير الميسر · مجمع الملك فهد لطباعة المصحف الشريف" FontSize="11" Opacity="0.75" FlowDirection="RightToLeft" />
+            </StackPanel>
+            <Button x:Name="PopupStyleButton" Grid.Column="1" Content="◫" Padding="8,4" ToolTipService.ToolTip="Switch presentation style" Click="CyclePresentationStyle" AutomationProperties.Name="Switch tafsir presentation style" />
+            <Button x:Name="PopupCloseButton" Grid.Column="2" Content="✕" Padding="8,4" ToolTipService.ToolTip="Close tafsir (Esc)" Click="CloseTafsir" AutomationProperties.Name="Close tafsir popup" />
+          </Grid>
+
+          <!-- Popup Content ScrollViewer -->
+          <ScrollViewer x:Name="PopupContentScrollViewer" Grid.Row="1" IsTabStop="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled">
+            <StackPanel Spacing="14">
+              <!-- Selected Ayah Scripture Text Box -->
+              <Border x:Name="PopupScriptureBox" CornerRadius="10" BorderThickness="1" Padding="18,14">
+                <RichTextBlock x:Name="PopupScriptureText" FontSize="24" FlowDirection="RightToLeft" Language="ar-SA" TextWrapping="Wrap" IsTextSelectionEnabled="True" LineHeight="44" LineStackingStrategy="BlockLineHeight" />
+              </Border>
+
+              <!-- Subtle Divider -->
+              <Border x:Name="PopupDivider" Height="1" HorizontalAlignment="Stretch" />
+
+              <!-- Tafsir Commentary Text -->
+              <RichTextBlock x:Name="PopupTafsirText" FontFamily="Segoe UI" FontSize="18" FlowDirection="RightToLeft" Language="ar-SA" TextWrapping="Wrap" IsTextSelectionEnabled="True" LineHeight="31" LineStackingStrategy="BlockLineHeight" />
+            </StackPanel>
+          </ScrollViewer>
+        </Grid>
+      </Border>
+    </Grid>
+  </local:AutomationRootGrid>
+</Window>

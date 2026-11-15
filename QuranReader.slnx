@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="src/QuranReader.Core/QuranReader.Core.csproj" />
+  <Project Path="src/QuranReader.Data/QuranReader.Data.csproj" />
+  <Project Path="src/QuranReader.App/QuranReader.App.csproj" />
+  <Project Path="tests/QuranReader.Tests/QuranReader.Tests.csproj" />
+</Solution>

@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework><IsTestProject>true</IsTestProject><IsPackable>false</IsPackable></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/QuranReader.Data/QuranReader.Data.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.11.0" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="4.0.1" PrivateAssets="all" />
+    <Using Include="Xunit" />
+    <Content Include="../../content/quran-reader-data-v0.3/quran_reader_candidate.sqlite3" Condition="Exists('../../content/quran-reader-data-v0.3/quran_reader_candidate.sqlite3')" Link="Content/quran_reader_candidate.sqlite3" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

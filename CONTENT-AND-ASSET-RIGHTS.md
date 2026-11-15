@@ -1,0 +1,11 @@
+# Content and asset rights
+
+The MIT License covers eligible project-owned software and documentation only. It does not relicense Qur’anic text, publisher metadata, Tafsir, font software, Mushaf artwork, third-party source or NuGet/runtime components. Arabic/sacred literals appearing in source or tests do not acquire an ownership or religious-approval claim through this license.
+
+No content database, Tafsir archive, publisher font, artwork or user data is included. The local development reader was validated against a specific provisional schema-3 source: 114 surahs, 6,236 ayat, 604 publisher pages, 30 juz and a one-to-one Tafsir mapping. Rendering uses `reader_verses.aya_text_unicode`; commentary uses `reader_tafsir.tafsir_markup` through an explicit native allowlist. The code contains exact SHA-256 pins; they are not negotiable substitutes for rights.
+
+Attribution: King Fahd Glorious Qur’an Printing Complex, https://qurancomplex.gov.sa/quran-dev/. Local source-register attribution is not an endorsement or a current redistribution license. Obtain resources directly from their rights holder under applicable terms. Contact the maintainer about the precise validated source edition; no publicly redistributable pinned database/acquisition recipe is established here. Do not distribute the historical candidate database or extract/ship a font merely because a checksum matches.
+
+For authorized local research only, the existing code expects a schema-3 database at `content/quran-reader-data-v0.3/quran_reader_candidate.sqlite3` and the pinned Hafs font at `src/QuranReader.App/Assets/kfgqpc_hafs_v30.ttf`. Those paths are ignored. Verify them through the unchanged application guards; do not replace sacred text, bypass font validation or commit local assets. `RequirePublisherFont=false` permits compilation only; it does not enable reading without verification.
+
+Before any application/content distribution: establish written data/font/artwork rights, appropriate notices, qualified religious/editorial and Arabic visual review, accessibility/DPI acceptance and a release/signing process. Unnumbered Basmalah provenance remains unresolved; the existing source-defined policy and At-Tawbah/Al-Fatihah safeguards must remain explicit. Fixed/Adaptive modes are Mushaf-inspired, not a certified edition-faithful renderer.

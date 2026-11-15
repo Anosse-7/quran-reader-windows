@@ -1,0 +1,450 @@
+[
+  {
+    "Package": "Microsoft.CodeCoverage",
+    "Version": "18.11.0",
+    "DeclaredLicense": "MIT",
+    "LicenseType": "expression",
+    "NoticeEvidence": [
+      {
+        "File": "ThirdPartyNotices.txt",
+        "Sha256": "4fc4244935bbe3516164402c573f053a5d246571ed4d357e6cccd8ebec296bbc"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.CodeCoverage/18.11.0",
+    "ContentHash": "MhN9wpvL1Es4hfIYslrsVgIsUdDFxuOBTbAl9mGIMvFo8PP5CLf4DrGdNrfwWSyn0lqi6sssm+I/qkkLL3MU+g==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.Data.Sqlite",
+    "Version": "10.0.14",
+    "DeclaredLicense": "MIT",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.Data.Sqlite/10.0.14",
+    "ContentHash": "muyroan6rKrf0omZL8UF7Kw5uOGp/yBg1L/XWvkFN3WhKaNtK2IWqRZw93nIwVqjhTVDO0l4CEGhHIh+mb+sKg==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.Data.Sqlite.Core",
+    "Version": "10.0.14",
+    "DeclaredLicense": "MIT",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/10.0.14",
+    "ContentHash": "1p9rO3Q2X/L/9YrYog3vaDzi8u+WZfJCOkDYoHqmofqYP0DLPLPyZcS2Rnh/79JXAodgbs1AgsaNwLpIvC3Xew==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.NET.Test.Sdk",
+    "Version": "18.11.0",
+    "DeclaredLicense": "MIT",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.NET.Test.Sdk/18.11.0",
+    "ContentHash": "xf/bR0LNkhK0SnadDRlZIQmC4sac5Wk0e1WAdiQjRN3MSo6gQ9M2c4c1XRNnVGjfOvckh704W5CJ19AL0/Xsdg==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.TestPlatform.ObjectModel",
+    "Version": "18.11.0",
+    "DeclaredLicense": "MIT",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.TestPlatform.ObjectModel/18.11.0",
+    "ContentHash": "BXBHYnwSOljKute8UYCMXOLAdB7awxEMppPSpqOF1ZxLD/W/OH+vTBgFaXA7q0aditJTVXSMVenel+wOkEIyNg==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.TestPlatform.TestHost",
+    "Version": "18.11.0",
+    "DeclaredLicense": "MIT",
+    "LicenseType": "expression",
+    "NoticeEvidence": [
+      {
+        "File": "ThirdPartyNotices.txt",
+        "Sha256": "e2ce7628e0f67d0d724eea9d9286a6938bf1eedd253fc84b23d72ae54778a5f7"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.TestPlatform.TestHost/18.11.0",
+    "ContentHash": "AKjwKpyRBwoQFQmpcchtoYlfJEBlaY/40uxBRi+qXP4NR7xT8t+XTJtOyEyumfvfJcH5pASs75LwNdXYRr4XNA==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.Web.WebView2",
+    "Version": "1.0.3719.77",
+    "DeclaredLicense": "LICENSE.txt",
+    "LicenseType": "file",
+    "NoticeEvidence": [
+      {
+        "File": "LICENSE.txt",
+        "Sha256": "0af8f1b807512aae39c2ac1aa4d0cae65cabecb6fd554b8439a5162a0d6eca55"
+      },
+      {
+        "File": "NOTICE.txt",
+        "Sha256": "106423785c5b7eba0a8e61d1837f2132e9c828e20ad530f565d981c1df60dd90"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.3719.77",
+    "ContentHash": "t+ucyKw5NTwMjsUrDF6R9Lk40lpcKQD1/HgyGFxl49tdA4h9dKlsj6FYGEmDRpFNfnTpENuTypMcdbrlkqBdDA==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.Windows.AI.MachineLearning",
+    "Version": "2.1.74",
+    "DeclaredLicense": "license.txt",
+    "LicenseType": "file",
+    "NoticeEvidence": [
+      {
+        "File": "license.txt",
+        "Sha256": "66395f8cb219087fae2bd025010bd9076b736c14f03b48f20295471c0c376814"
+      },
+      {
+        "File": "ThirdPartyNotices.txt",
+        "Sha256": "fb0af774b4d7cffc5b9d046f2aaeade2f37df2f80abf8033c95dfffcc77a8866"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.Windows.AI.MachineLearning/2.1.74",
+    "ContentHash": "/Z1yAQ0J53eD1RrOl5anTDS0UQOgneERY//hLljwGcWeUX9ynCvOl5qUxAsfWvwsZZGcvV4WKjAvnAtA6N5i+w==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.Windows.SDK.BuildTools",
+    "Version": "10.0.28000.2957",
+    "DeclaredLicense": "https://aka.ms/WinSDKLicenseURL",
+    "LicenseType": "url",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.Windows.SDK.BuildTools/10.0.28000.2957",
+    "ContentHash": "nTsRheC9AO+if3BykWkRJ4QXkIMfkqufnBFPIcSEOj7rnX60fqiGrORnxzVFnIXJvsMIjlDOvs/K5EzMLA2RKQ==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.Windows.SDK.BuildTools.MSIX",
+    "Version": "1.7.251221100",
+    "DeclaredLicense": "sdk_license.txt",
+    "LicenseType": "file",
+    "NoticeEvidence": [
+      {
+        "File": "sdk_license.txt",
+        "Sha256": "a7a5c7e7ff998558983d6aca2702117c328aeb0c6404d298cb275f5623c6fd13"
+      },
+      {
+        "File": "NOTICE.txt",
+        "Sha256": "f09ebf5de6a5c8e7ebc900bb2e52af2f75e13610a1cf91e1514530e448d956c3"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.Windows.SDK.BuildTools.MSIX/1.7.251221100",
+    "ContentHash": "f4aIZJ0NUth2403oxrpR+9rxVzZVI6dabqB21u8ncnk8eJAKCs9m77E4iYAnvP1YwrRe4axz3f8+yUcttNSfEA==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.WindowsAppSDK",
+    "Version": "2.5.1",
+    "DeclaredLicense": "license.txt",
+    "LicenseType": "file",
+    "NoticeEvidence": [
+      {
+        "File": "license.txt",
+        "Sha256": "5b11e6347756e40fe0274bc08c97f89201b94f0d50181a09a00f1f4740840501"
+      },
+      {
+        "File": "NOTICE.txt",
+        "Sha256": "572b43d41dea717dae7dc5de69acb20a74df025e8f5a3c0aa6f7bca02615e23c"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.WindowsAppSDK/2.5.1",
+    "ContentHash": "WgKPzT1H2s17azODD1jNZje69z1hGz8VSh3bIylTtXHVg7hLyrn8Y+rswFqF41UX8ea7ELeoyqN80zZ6EHwCFA==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.WindowsAppSDK.AI",
+    "Version": "2.5.5",
+    "DeclaredLicense": "license.txt",
+    "LicenseType": "file",
+    "NoticeEvidence": [
+      {
+        "File": "license.txt",
+        "Sha256": "5b11e6347756e40fe0274bc08c97f89201b94f0d50181a09a00f1f4740840501"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.WindowsAppSDK.AI/2.5.5",
+    "ContentHash": "f6XA05BsTAmDDsWGiFQdcAujNlbET5QbqxhBo7iHPJJix+RJajXKv1XlO19M78GtEpi2AYGEv08dPxER8ESYAw==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.WindowsAppSDK.Base",
+    "Version": "2.0.4",
+    "DeclaredLicense": "license.txt",
+    "LicenseType": "file",
+    "NoticeEvidence": [
+      {
+        "File": "license.txt",
+        "Sha256": "5b11e6347756e40fe0274bc08c97f89201b94f0d50181a09a00f1f4740840501"
+      },
+      {
+        "File": "NOTICE.txt",
+        "Sha256": "572b43d41dea717dae7dc5de69acb20a74df025e8f5a3c0aa6f7bca02615e23c"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Base/2.0.4",
+    "ContentHash": "QXSy2llX2/Bx9dYWGUEsb10F40q94ZiDnPMzqa2/qRmTG4y9EXxGp6uHITb7c0b4FCa+6KFBlgh6D53M0QEMEg==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.WindowsAppSDK.DWrite",
+    "Version": "2.1.0",
+    "DeclaredLicense": "license.txt",
+    "LicenseType": "file",
+    "NoticeEvidence": [
+      {
+        "File": "license.txt",
+        "Sha256": "5b11e6347756e40fe0274bc08c97f89201b94f0d50181a09a00f1f4740840501"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.WindowsAppSDK.DWrite/2.1.0",
+    "ContentHash": "dgix7NSeo7Z8SZPyrsOqYm/6OUvBveHCiVyorYecmtDYoZW26dJ6/i9yveIxgWvmFpgfKXPeIuQBCvhbetHiYg==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.WindowsAppSDK.Foundation",
+    "Version": "2.3.12",
+    "DeclaredLicense": "license.txt",
+    "LicenseType": "file",
+    "NoticeEvidence": [
+      {
+        "File": "license.txt",
+        "Sha256": "5b11e6347756e40fe0274bc08c97f89201b94f0d50181a09a00f1f4740840501"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Foundation/2.3.12",
+    "ContentHash": "UflrNbXoZmHPt8lLGDk4gQ+yoGfQlCHd3TVTy7YwCMZ/aVGWAiLDqGCEjtWmNsI8ySy6imx3ZlenKfd2/VMPEg==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.WindowsAppSDK.InteractiveExperiences",
+    "Version": "2.1.9",
+    "DeclaredLicense": "license.txt",
+    "LicenseType": "file",
+    "NoticeEvidence": [
+      {
+        "File": "license.txt",
+        "Sha256": "5b11e6347756e40fe0274bc08c97f89201b94f0d50181a09a00f1f4740840501"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.WindowsAppSDK.InteractiveExperiences/2.1.9",
+    "ContentHash": "59nvb3pQYsBTTGrobeHkB4bkxASHtpaORJl7r6Zvg8PSIDCupEZTPKrIhnUknHDGfAtuBsnORjgvRi2WXGaRhA==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.WindowsAppSDK.ML",
+    "Version": "2.1.94",
+    "DeclaredLicense": "license.txt",
+    "LicenseType": "file",
+    "NoticeEvidence": [
+      {
+        "File": "license.txt",
+        "Sha256": "656aab74c15aa9f9964bcdcc993eb2755cbdb4822d5e0e3bc61d2e281897f758"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.WindowsAppSDK.ML/2.1.94",
+    "ContentHash": "b21CWVubc3WqWNJ9+fy7n+s83LgwBpIzYrOuSUmHAqPB0pH+ttjgiknnDA/oF7wCbjiaUb4KDXVV7Mya3f18Ug==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.WindowsAppSDK.Runtime",
+    "Version": "2.5.1",
+    "DeclaredLicense": "license.txt",
+    "LicenseType": "file",
+    "NoticeEvidence": [
+      {
+        "File": "license.txt",
+        "Sha256": "5b11e6347756e40fe0274bc08c97f89201b94f0d50181a09a00f1f4740840501"
+      },
+      {
+        "File": "NOTICE.txt",
+        "Sha256": "572b43d41dea717dae7dc5de69acb20a74df025e8f5a3c0aa6f7bca02615e23c"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Runtime/2.5.1",
+    "ContentHash": "EDzGf6Tq9njNfNsTfqKdiwmSzFF/caHItuDa99UTQiOvLXwOjCL1k75/PMLSoHbCo1cSlHh/sSqZVssJ/Z0NzA==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.WindowsAppSDK.Search",
+    "Version": "2.5.5",
+    "DeclaredLicense": "license.txt",
+    "LicenseType": "file",
+    "NoticeEvidence": [
+      {
+        "File": "license.txt",
+        "Sha256": "5b11e6347756e40fe0274bc08c97f89201b94f0d50181a09a00f1f4740840501"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Search/2.5.5",
+    "ContentHash": "uvYkXi9TB4rk/kgWn5XHEkMNMU+xhjY+S0QWsxEs8wYT/dXAjfHvW30+JVoW/THZ/9jIMinEn4gliCSVRFV0Sw==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.WindowsAppSDK.Widgets",
+    "Version": "2.0.5",
+    "DeclaredLicense": "license.txt",
+    "LicenseType": "file",
+    "NoticeEvidence": [
+      {
+        "File": "license.txt",
+        "Sha256": "5b11e6347756e40fe0274bc08c97f89201b94f0d50181a09a00f1f4740840501"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.WindowsAppSDK.Widgets/2.0.5",
+    "ContentHash": "lRz+8+QU65gV8hRzLVE+GRsPKZ42lnzqkmsw96HzQd/DuFYfr4JYpUU7ZZ5YrkV2EfQe4BCmoRKAeZ3WwalMcg==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "Microsoft.WindowsAppSDK.WinUI",
+    "Version": "2.3.9",
+    "DeclaredLicense": "license.txt",
+    "LicenseType": "file",
+    "NoticeEvidence": [
+      {
+        "File": "license.txt",
+        "Sha256": "5b11e6347756e40fe0274bc08c97f89201b94f0d50181a09a00f1f4740840501"
+      },
+      {
+        "File": "NOTICE.txt",
+        "Sha256": "e25393c0d340a1821827b093fa4dbbfcccd8feb7bf769e7fa773e3955cd5314b"
+      }
+    ],
+    "NugetUrl": "https://www.nuget.org/packages/Microsoft.WindowsAppSDK.WinUI/2.3.9",
+    "ContentHash": "GiuYUQqMYD5lycT+X2AGX1rlbHU/zf8xoPeZNXZbJj4mZcSr4STsxeRUMxnTUQLAmmjjQaPrTIRjn78vbPhAvg==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "SQLitePCLRaw.bundle_e_sqlite3",
+    "Version": "2.1.13",
+    "DeclaredLicense": "Apache-2.0",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/SQLitePCLRaw.bundle_e_sqlite3/2.1.13",
+    "ContentHash": "NlDixlC7uHmo+ojXRgkNvN0tQtVGpLDZ3x2OpgNj+G07VHh5cXSszFDrAiC4BpUiPwkcaeuQkMV9WQ123xVtmQ==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "SQLitePCLRaw.core",
+    "Version": "2.1.13",
+    "DeclaredLicense": "Apache-2.0",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/SQLitePCLRaw.core/2.1.13",
+    "ContentHash": "2joofoinuHBFs0nMX3nKuXgxpXryRkCOdM2Ua6HBqQLLy6IW+5f28ZI+HAvMyF8vG7XfNz/lwfBfE6V4juru8Q==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "SQLitePCLRaw.lib.e_sqlite3",
+    "Version": "2.1.13",
+    "DeclaredLicense": "Apache-2.0",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/SQLitePCLRaw.lib.e_sqlite3/2.1.13",
+    "ContentHash": "D2UAuiGxFYBqeRXjjjGgvJ5UQifzn6wefmSqeKU7XcNGKLbJRP6X7kcPZ6opOBJGdCIlgbSxTvDpBbLvsN594A==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "SQLitePCLRaw.provider.e_sqlite3",
+    "Version": "2.1.13",
+    "DeclaredLicense": "Apache-2.0",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/SQLitePCLRaw.provider.e_sqlite3/2.1.13",
+    "ContentHash": "ZU60dSqoSNRe49KcQDUmOVgdRtjITOssVXFtiISs+zJXDI4D2Sndwpn2NOtzDQNPu0ZAvpoLPQ+GLKv6iEZn8Q==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "System.Numerics.Tensors",
+    "Version": "9.0.0",
+    "DeclaredLicense": "MIT",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/System.Numerics.Tensors/9.0.0",
+    "ContentHash": "hyJB4UlpAi19Xr9AXzu2NuagKC4lPfHObNMEAA0HmqFz2rX7wKgzeYzO/jM/eBHDhnUGFFEjk5cOoJaxqg5J4A==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "xunit",
+    "Version": "2.9.3",
+    "DeclaredLicense": "Apache-2.0",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/xunit/2.9.3",
+    "ContentHash": "TlXQBinK35LpOPKHAqbLY4xlEen9TBafjs0V5KnA4wZsoQLQJiirCR4CbIXvOH8NzkW4YeJKP5P/Bnrodm0h9Q==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "xunit.abstractions",
+    "Version": "2.0.3",
+    "DeclaredLicense": "https://raw.githubusercontent.com/xunit/xunit/master/license.txt",
+    "LicenseType": "url",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/xunit.abstractions/2.0.3",
+    "ContentHash": "pot1I4YOxlWjIb5jmwvvQNbTrZ3lJQ+jUGkGjWE3hEFM0l5gOnBWS+H3qsex68s5cO52g+44vpGzhAt+42vwKg==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "xunit.analyzers",
+    "Version": "1.18.0",
+    "DeclaredLicense": "Apache-2.0",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/xunit.analyzers/1.18.0",
+    "ContentHash": "OtFMHN8yqIcYP9wcVIgJrq01AfTxijjAqVDy/WeQVSyrDC1RzBWeQPztL49DN2syXRah8TYnfvk035s7L95EZQ==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "xunit.assert",
+    "Version": "2.9.3",
+    "DeclaredLicense": "Apache-2.0",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/xunit.assert/2.9.3",
+    "ContentHash": "/Kq28fCE7MjOV42YLVRAJzRF0WmEqsmflm0cfpMjGtzQ2lR5mYVj1/i0Y8uDAOLczkL3/jArrwehfMD0YogMAA==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "xunit.core",
+    "Version": "2.9.3",
+    "DeclaredLicense": "Apache-2.0",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/xunit.core/2.9.3",
+    "ContentHash": "BiAEvqGvyme19wE0wTKdADH+NloYqikiU0mcnmiNyXaF9HyHmE6sr/3DC5vnBkgsWaE6yPyWszKSPSApWdRVeQ==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "xunit.extensibility.core",
+    "Version": "2.9.3",
+    "DeclaredLicense": "Apache-2.0",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/xunit.extensibility.core/2.9.3",
+    "ContentHash": "kf3si0YTn2a8J8eZNb+zFpwfoyvIrQ7ivNk5ZYA5yuYk1bEtMe4DxJ2CF/qsRgmEnDr7MnW1mxylBaHTZ4qErA==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "xunit.extensibility.execution",
+    "Version": "2.9.3",
+    "DeclaredLicense": "Apache-2.0",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/xunit.extensibility.execution/2.9.3",
+    "ContentHash": "yMb6vMESlSrE3Wfj7V6cjQ3S4TXdXpRqYeNEI3zsX31uTsGMJjEw6oD5F5u1cHnMptjhEECnmZSsPxB6ChZHDQ==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  },
+  {
+    "Package": "xunit.runner.visualstudio",
+    "Version": "4.0.1",
+    "DeclaredLicense": "Apache-2.0",
+    "LicenseType": "expression",
+    "NoticeEvidence": [],
+    "NugetUrl": "https://www.nuget.org/packages/xunit.runner.visualstudio/4.0.1",
+    "ContentHash": "8CoAaZkniVekR1ycJyxn+hOz+6ZQCDPcoIsIs6ujd4WyFcBMlxGNU15Qb8Uxd4iO4UmOuETb0M6vzBbwX/mfLA==",
+    "Scope": "Package reference only; no package/runtime files vendored or relicensed"
+  }
+]

@@ -1,0 +1,15 @@
+name: Source-only checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
+        with:
+          dotnet-version: 10.0.403
+      - run: dotnet restore QuranReader.slnx --locked-mode
+      - run: dotnet test tests/QuranReader.Tests/QuranReader.Tests.csproj --no-restore --filter "FullyQualifiedName~ReaderTests|FullyQualifiedName~DesktopInteractionTests|FullyQualifiedName~ReadingFitTests|FullyQualifiedName~SurahTransitionLayoutTests"
+      - run: dotnet build src/QuranReader.App/QuranReader.App.csproj -c Release --no-restore -p:RequirePublisherFont=false
